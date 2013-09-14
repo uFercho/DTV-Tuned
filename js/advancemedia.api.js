@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	function sendTuned(channel){
-		$.ajax({
+		/*$.ajax({
 			cache    : true,
 			dataType : 'jsonp',
 			url      : "http://10.1.42.213:8080/tv/tune?major="+channel,
@@ -18,7 +18,34 @@ $(document).ready(function() {
 			success  : function(data, textStatus, jqXHR) {
 				console.log(JSON.stringify(data) + " / " + textStatus + " / " + JSON.stringify(jqXHR));
 			}
-		});	
+		});	*/
+		$.ajax({
+			cache    : true,
+			dataType : 'jsonp',
+			url      : "http://192.168.1.147:8080/tv/tune?major="+channel,
+			type     : 'GET',
+			success  : function(data, textStatus, jqXHR) {
+				console.log(JSON.stringify(data) + " / " + textStatus + " / " + JSON.stringify(jqXHR));
+				alert("Msg: "+data.status.msg+" / Canal: "+channel);
+			},
+			error	 : function(data, textStatus, jqXHR) {
+				console.log(JSON.stringify(data) + " / " + textStatus + " / " + JSON.stringify(jqXHR));
+				alert("Msg: "+data.status.msg+" / Canal: "+channel);
+			}
+		});
+		
+		/*var cadena = $.getJSON("http://192.168.1.147:8080/tv/tune?major="+channel, function (data) {
+			console.log(data.status.msg);
+			/*for (l in data.libros.lib) {
+			   cad += ("<br />" + data.libros.lib[l].libro + " de " +
+				   data.libros.lib[l].autores[0] + ", " +
+				   data.libros.lib[l].autores[1] + " y " +
+				   data.libros.lib[l].autores[2] + "<br />Editorial: " +
+				   data.libros.lib[l].editorial +
+				   "<br />").replace("y undefined", "").replace(", undefined", "");
+			}
+			$("#texto").html(cad);
+		});*/
 	}
 	
 	function validChannel(channel){
