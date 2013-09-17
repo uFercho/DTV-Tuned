@@ -1,7 +1,7 @@
 DTV-Tuned
 =========
 
-Cliente de Javascript usando jQuery para hacer consultas al DVR del Directv en LAN para informacion o cambio de canal.
+Cliente de Javascript usando jQuery para hacer consultas al DVR del Directv en LAN para informacion y/o cambio de canal.
 
 Aplicacion Web multiplataforma que no requiere instalacion de un servidor o software dentro de una LAN para las consultas al DVR de Directv.
 
