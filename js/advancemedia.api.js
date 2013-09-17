@@ -10,7 +10,6 @@ $(document).ready(function() {
 			url      : "http://"+ IP_Directv +":8080/tv/getTuned", 
 			type     : 'GET',
 			success  : function(data, textStatus, jqXHR) {
-				console.log(JSON.stringify(data) + " / " + textStatus + " / " + JSON.stringify(jqXHR));
 				$( "#reload" ).hide( "fast" );
 				$("#getTuned").html('<span class="help-block"><strong>Canal: </strong> ' + data.callsign + '</span> <span class="help-block"><strong>Num Canal: </strong> ' + data.major + '</span> <span class="help-block"><strong>Titulo: </strong> ' + data.title + '</span> <span class="help-block"><strong>Episodio: </strong> ' + data.episodeTitle + '</span> <span class="help-block"><strong>Rating: </strong> ' + data.rating + '</span> <span class="help-block"><strong>Duracion: </strong> ' + data.duration + ' Seg</span>');
 				
@@ -26,7 +25,6 @@ $(document).ready(function() {
 			url      : "http://"+ IP_Directv +":8080/tv/tune?major="+channel,
 			type     : 'GET',
 			success  : function(data, textStatus, jqXHR) {
-				console.log(JSON.stringify(data) + " / " + textStatus + " / " + JSON.stringify(jqXHR));
 				$("#getTuned").html('<div><img src="img/loader.gif"/></div>');
 				$( "#reload" ).show( "fast" );
 				setTimeout(function() {
